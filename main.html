@@ -276,59 +276,50 @@
               </div>
             </div>
 
-            <div class="contact-form">
+           <div class="contact-form">
               <form
-                form
-                action="https://formsubmit.co/fbe30d8ad08199aa18d939301659dec5 "
                 method="POST"
+                onsubmit="showSuccessMessage(event)"
               >
                 <h3 class="title">Contact me</h3>
                 <div class="row">
                   <input type="hidden" name="_template" value="table" />
                   <input type="hidden" name="_subject" value="Contact" />
-
-                  <input
-                    class="contact-input"
-                    placeholder="First Name"
-                    type="text"
-                    name="fname"
-                    required
-                  />
-                  <input
-                    type="text"
-                    class="contact-input"
-                    placeholder="Last Name"
-                    name="lname"
-                    required
-                  />
+            
+                  <input class="contact-input" placeholder="First Name" type="text" name="fname" required />
+                  <input type="text" class="contact-input" placeholder="Last Name" name="lname" required />
                 </div>
-
+            
                 <div class="row">
-                  <input
-                    type="text"
-                    class="contact-input"
-                    placeholder="Phone"
-                    name="phone"
-                    required
-                  />
-                  <input
-                    type="email"
-                    class="contact-input"
-                    placeholder="Email"
-                    name="email"
-                    required
-                  />
+                  <input type="text" class="contact-input" placeholder="Phone" name="phone" required />
+                  <input type="email" class="contact-input" placeholder="Email" name="email" required />
                 </div>
-
+            
                 <div class="row">
-                  <textarea
-                    class="contact-input textarea"
-                    placeholder="Message"
-                    name="message"
-                    required
-                  ></textarea>
+                  <textarea class="contact-input textarea" placeholder="Message" name="message" required></textarea>
                 </div>
                 <button type="submit" class="btn">Send</button>
+              </form>
+            
+              <div id="success-message" style="display: none;">
+                <p>Thank you for your message! We will get back to you shortly.</p>
+              </div>
+            </div>
+            
+            <script>
+              function showSuccessMessage(event) {
+                event.preventDefault();
+        
+                document.getElementById('success-message').style.display = 'block';
+          
+                event.target.reset();
+            
+                
+                setTimeout(function() {
+                  event.target.submit(); 
+                }, 2000); 
+              }
+            </script>
               </form>
             </div>
           </div>
